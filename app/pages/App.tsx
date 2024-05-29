@@ -7,6 +7,7 @@ import { EmptyList } from "../components/empty-list";
 import { TaskCard } from "../components/task-card";
 import { useState } from "react";
 import { ITask } from "./task.interface";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export function App() {
   const [tasks, setTasks] = useState<ITask[]>([]);
@@ -34,7 +35,11 @@ export function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      style={styles.container}
+      colors={['#0D0D0D', '#1A1A1A']}
+      locations={[0.32, 0.32]}
+    >
         <Logo />
         <Form emitAddTask={handleAddTask}/>
         <Counters tasks={tasks} />
@@ -55,6 +60,6 @@ export function App() {
           )}
           ListEmptyComponent={() => (<EmptyList />)}
         />
-    </View>
+    </LinearGradient >
   );
 }
